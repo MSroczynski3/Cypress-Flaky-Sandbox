@@ -3,7 +3,7 @@ describe('Sign Up', () => {
   // but you will probably fail if you run it 10-20 times in a row
   // Can you do it? Run this test again and again and again to see if it fails?
 
-  it('Adds person to course', () => {
+  it('Adds person to course', { tags: '@burn' }, () => {
     cy.visit('/')
 
     // type user name into input
