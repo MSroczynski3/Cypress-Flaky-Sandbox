@@ -19,7 +19,9 @@ describe('Sign Up', () => {
       // select the "git-it" course
       cy.get('select[name="course"]').select('git-it')
       // submit the form
+      cy.intercept('POST', /students/).as('save')
       cy.get('input[type="submit"]').click()
+      cy.wait('@save')
       // the "Saved!" message should appear
       cy.get('input[value="Saved!"]').should('be.visible')
       // and the list of registered people should contain the new person
